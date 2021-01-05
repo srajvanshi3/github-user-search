@@ -5,19 +5,16 @@ const SearchResult = ({ info , repositories }) => {
   const repoArr = repositories.map((nm)=>nm.name)
   return (
    <div>
-
-<div>
+   <div>
   <img className="card-img"  src={info.avatar_url} alt="Card image cap" />
   <div className="card-body">
     <h3 className="card-title">{info.name}</h3>
     <p className="card-text">{info.bio}</p>
   </div>
-</div>
+  </div>
+  <h3>Some More Information:-</h3>
+  <div className="list-group">
 
-   <h3>Some More Information:-</h3>
-<div className="list-group">
-
-  
   <a href="#" className="list-group-item list-group-item-action list-group-item-primary">Followers:{info.followers}</a>
   <a href="#" className="list-group-item list-group-item-action list-group-item-secondary">Following:{info.following}</a>
   <a href="#" className="list-group-item list-group-item-action list-group-item-success">location : {info.location}</a>
@@ -26,17 +23,15 @@ const SearchResult = ({ info , repositories }) => {
   <a href="#" className="list-group-item list-group-item-action list-group-item-secondary">WorkingAt : {info.company}</a>
 
   
-</div>
+  </div>
        
-<div>
- <h1>REPOSITORIES:</h1> { repoArr.map((nm, index) => (
+  <div>
+   <h1>REPOSITORIES:</h1> { repoArr.map((nm, index) => (
         <a><p><h3><img className='git-icon' src={Github}></img> {nm} </h3></p></a>
     ))}
   
 </div>
 </div>
-
-
 
   );
 };

@@ -5,13 +5,13 @@ import { fetchGitUserList ,fetchGitUserRepos ,fetchGitUserinfo } from "../Utils/
  
  
 const SeearchBox = () => {
- const [info, setinfo] = useState({});
+ 
+  const [info, setinfo] = useState({});
  const [username, setUsername] = useState("");
  const [searchResult, setSearchResult] = useState([]);
  const [repos, setRepos] = useState([]);
- 
-
- 
+ const[onclick , setOnclick] = useState(false)
+  
  const ChangeHandler = (event) => {
    const { value } = event.target
    setUsername(value);
@@ -68,12 +68,13 @@ const SeearchBox = () => {
        />
      </div>
  
-     <button className="button"  onClick={handleUserRepos}>
+    <button className="button"  onClick={handleUserRepos}>
        {" "}
        SearchUser
      </button>
-     <UserListView search={searchResult}/>
-     <SearchResult info={info} repositories={repos} />
+    
+     <UserListView search={searchResult} info={info} repositories={repos}   />
+     <SearchResult info={info} repositories={repos}/>
    </>
  );
 };
