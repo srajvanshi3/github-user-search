@@ -15,7 +15,14 @@ function UserListView(props) {
             <h3>search result: </h3>
 
        {usersList.map((log)=>{
-           return <li>{log.login}</li>
+           return (
+               <ul>
+                
+                <li><img src={log.avatar_url} className="user-img"></img> <h3>{log.login}</h3></li>
+               
+               </ul>
+           
+           ) 
        })}
         </div>
     )
