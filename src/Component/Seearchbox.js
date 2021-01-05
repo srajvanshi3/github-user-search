@@ -51,7 +51,7 @@ const SeearchBox = () => {
  
  return (
    <>
-     <div className="header">
+     <div className="navbar navbar-expand-sm  navbar-dark px-sm-5">
        <a href="#default" className="logo">
          <h1>Github</h1>
        </a>

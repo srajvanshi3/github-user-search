@@ -1,31 +1,28 @@
 import React from 'react'
-
+import Users from "./Users"
 function UserListView(props) {
 
-    console.log(".......props" , props.search[0])
     const usersList = props.search
     
-    usersList.map((log)=>{
-        const loginID= log.login
-        console.log("aray..", loginID)
-    })
+    // usersList.map((log)=>{
+    //     const loginID= log.login
+    //     console.log("aray..", loginID)
+    // })
 
     return (
         <div>
             <h3>search result: </h3>
 
-       {usersList.map((log)=>{
+       {usersList.map((log , index)=>{
            return (
-               <ul>
-                
-                <li><img src={log.avatar_url} className="user-img"></img> <h3>{log.login}</h3></li>
-               
-               </ul>
-           
-           ) 
+             <Users img={log.avatar_url} id={log.login}></Users>
+                       ) 
        })}
         </div>
     )
 }
 
 export default UserListView
+
+
+               
