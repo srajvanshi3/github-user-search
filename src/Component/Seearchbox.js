@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import SearchResult from "./SearchResult";
-import axios from "axios";
- 
+import UserListView from "./UserListView"; 
 import { fetchGitUserList } from "../utlis/Apiutils"
+import UserListView from "./UserListView";
  
  
 const SeearchBox = () => {
@@ -92,6 +92,7 @@ const SeearchBox = () => {
        {" "}
        SearchUser
      </button>
+     <UserListView search={searchResult}/>
      <SearchResult info={info} repositories={repos} />
    </>
  );
