@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SearchResult from "./SearchResult";
 import UserListView from "./UserListView"; 
-import { fetchGitUserList } from "../Utils/ApiUtils"
+import { fetchGitUserList ,fetchGitUserRepos ,fetchGitUserinfo } from "../Utils/ApiUtils"
  
  
 const SeearchBox = () => {
@@ -10,28 +10,7 @@ const SeearchBox = () => {
  const [searchResult, setSearchResult] = useState([]);
  const [repos, setRepos] = useState([]);
  
- const onKeyPressHandler = async (err) => {
-   err.preventDefault();
- 
-   const info = await fetch(`https://api.github.com/users/${username || ""}`);
- 
-   console.log(info);
-   const jsoninfo = await info.json();
-   console.log(jsoninfo);
- 
-   const repos = await fetch(`https://api.github.com/users/${username || ""}/repos`);
-   console.log(repos);
- 
-   const jsonrepo = await repos.json();
-   console.log(jsonrepo);
- 
-   
-   setinfo(jsoninfo);
- 
-   setRepos(jsonrepo);
-   
-   
- };
+
  
  const ChangeHandler = (event) => {
    const { value } = event.target
@@ -56,9 +35,12 @@ const SeearchBox = () => {
  },
  [username],)
  
- const handleUserSearch = async() => {
- 
-   const res = await fetchGitUserList(username)
+ const handleUserRepos = async() => {
+   const res = await fetchGitUserRepos(username)
+   setRepos(res)
+
+   const response = await fetchGitUserinfo(username)
+   setinfo(response)
   //  debugger
    console.log(res)
  }
@@ -83,11 +65,10 @@ const SeearchBox = () => {
          aria-label="Search"
          value={username}
          onChange={ChangeHandler}
-          //onKeyPress={handleUserSearch}
        />
      </div>
  
-     <button className="button" onClick={onKeyPressHandler}>
+     <button className="button"  onClick={handleUserRepos}>
        {" "}
        SearchUser
      </button>
