@@ -11,13 +11,20 @@ function UserListView(props) {
 
     return (
         <div>
-            <h3>search result: </h3>
+            <div className="container">
+                     <div className="row">
+{usersList.map((log , index)=>{
+         
+         
+         return (
 
-       {usersList.map((log , index)=>{
-           return (
-             <Users img={log.avatar_url} id={log.login}></Users>
-                       ) 
-       })}
+         <Users img={log.avatar_url} id={log.login}></Users>
+         ) 
+       
+    })}
+           
+        </div>
+        </div>
         </div>
     )
 }
@@ -26,3 +33,18 @@ export default UserListView
 
 
                
+//     </div>
+
+
+
+
+
+//     <div>
+//         <h3>search result: </h3>
+
+//    {usersList.map((log , index)=>{
+//        return (
+//          <Users img={log.avatar_url} id={log.login}></Users>
+//                    ) 
+//    })}
+//     </div>
