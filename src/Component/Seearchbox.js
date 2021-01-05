@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SearchResult from "./SearchResult";
 import UserListView from "./UserListView"; 
-import { fetchGitUserList } from "../utlis/Apiutils"
-import UserListView from "./UserListView";
+import { fetchGitUserList } from "../Utils/ApiUtils"
  
  
 const SeearchBox = () => {
@@ -60,13 +59,13 @@ const SeearchBox = () => {
  const handleUserSearch = async() => {
  
    const res = await fetchGitUserList(username)
-   debugger
+  //  debugger
    console.log(res)
  }
  
  console.log("username.....", username)
  console.log("searchResult....", searchResult)
- debugger
+//  debugger
  
  return (
    <>

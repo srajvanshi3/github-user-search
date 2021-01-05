@@ -1,10 +1,10 @@
 import './App.css';
-import SeearchBox from  "./Component/Seearchbox"
+import SearchBox from  "./Component/Seearchbox"
 
 function App() {
   return (
     <div className="App">
-<SeearchBox></SeearchBox>
+<SearchBox></SearchBox>
     </div>
   );
 }
