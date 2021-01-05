@@ -2,7 +2,6 @@ import React from "react";
 import Github from "../Component/github.jpg"
 
 const SearchResult = ({ info , repositories }) => {
-  console.log(repositories.map((nm)=>nm.name))
   const repoArr = repositories.map((nm)=>nm.name)
   return (
    <div>
